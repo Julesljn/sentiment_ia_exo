@@ -9,9 +9,16 @@ from sklearn.metrics import classification_report
 csv_path = "src/sentiment_ia_exo/data/IMDB_Dataset.csv"
 df = pd.read_csv(csv_path)
 
-len80 = round(len(df) * 80 / 100)
-len20 = round(len(df) * 20 / 100)
+df = df.sample(frac=1, random_state=42).reset_index(drop=True)
+
+len80 = round(len(df) * 0.8)
+train_df = df.iloc[:len80]
+test_df  = df.iloc[len80:]
 
 
-train_text = df['review']
-print(len80, len20)
+x_train = train_df['review']
+y_train = train_df['sentiment']
+
+x_test = test_df['review']
+y_test = test_df['sentiment']
+
