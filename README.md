@@ -1,0 +1,1 @@
+poetry run python src/sentiment_ia_exo/main.py
