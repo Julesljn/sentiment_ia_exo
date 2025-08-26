@@ -22,3 +22,4 @@ y_train = train_df['sentiment']
 x_test = test_df['review']
 y_test = test_df['sentiment']
 
+print(x_train, x_test)
